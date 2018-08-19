@@ -17,6 +17,14 @@ module.exports = {
       },
     },
     'gatsby-plugin-offline',
-    'gatsby-plugin-netlify-cms'
+    'gatsby-plugin-netlify-cms',
+    `gatsby-transformer-remark`,
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/post`,
+        name: `markdown-posts`
+      }
+    },
   ],
 }

@@ -1,5 +1,6 @@
 ---
 title: test post
-date: '2018-08-18 10:53pm'
+path: "/post"
+date: '2017-11-07'
 ---
 test post
