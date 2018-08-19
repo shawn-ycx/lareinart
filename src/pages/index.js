@@ -5,6 +5,7 @@ import { Link, graphql } from 'gatsby';
 import Layout from '../components/layout';
 import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
+import Paper from '@material-ui/core/Paper';
 
 const styles = theme => ({
   root: {
@@ -23,13 +24,25 @@ const IndexPage = (props) => {
 
   const Posts = edges
     .filter(edge => !!edge.node.frontmatter.date) // You can filter your posts based on some criteria
-    .map(edge => <div key={edge.node.id}>{edge.node.frontmatter.title}</div>)
+    .map(edge =>
+      <Link to={edge.node.fields.slug}>
+        <Grid item xs>
+          <Paper className={classes.paper}>
+            {edge.node.frontmatter.title}
+          </Paper>
+        </Grid>
+      </Link>
+    )
 
   return (
     <Layout>
-      
       <div className={classes.root}>
-        <Grid container spacing={24}>
+        <Grid
+          container
+          direction="row"
+          justify="space-evenly"
+          alignItems="center"
+        >
           {Posts}
         </Grid>
       </div>
@@ -50,6 +63,9 @@ export const pageQuery = graphql`
       edges {
         node {
           id
+          fields {
+            slug
+          }
           frontmatter {
             date(formatString: "MMMM DD, YYYY")
             path
