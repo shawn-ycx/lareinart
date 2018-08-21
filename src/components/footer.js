@@ -5,11 +5,6 @@ import { push } from 'gatsby';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
-import Input from '@material-ui/core/Input';
-import FormGroup from '@material-ui/core/FormGroup';
-import FormLabel from '@material-ui/core/FormLabel';
-import FormControl from '@material-ui/core/FormControl';
-
 
 const styles = theme => ({
     footer: {
@@ -21,9 +16,8 @@ const styles = theme => ({
 
 const Footer = (props) => {
     const { classes } = props;
-
     return (
-        <footer className={classes.footer}>
+        <footer>
             <Typography variant="title" align="center">
                 Join my mailing list!
             </Typography>

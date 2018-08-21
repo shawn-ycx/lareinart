@@ -65,18 +65,18 @@ const styles = theme => ({
   },
 });
 
-// const sections = [
-//   'Technology',
-//   'Design',
-//   'Culture',
-//   'Business',
-//   'Politics',
-//   'Opinion',
-//   'Science',
-//   'Health',
-//   'Style',
-//   'Travel',
-// ];
+const sections = [
+  'Technology',
+  'Design',
+  'Culture',
+  'Business',
+  'Politics',
+  'Opinion',
+  'Science',
+  'Health',
+  'Style',
+  'Travel',
+];
 
 // const featuredPosts = [
 //   {
@@ -112,7 +112,7 @@ const styles = theme => ({
 
 // const social = ['GitHub', 'Twitter', 'Facebook'];
 
-function Blog(props) {
+function Header(props) {
   const { classes } = props;
 
   return (
@@ -132,7 +132,9 @@ function Blog(props) {
           Contact Me
         </Button>
       </Toolbar>
-      <Toolbar variant="dense" className={classes.toolbarSecondary}>
+      <Toolbar variant="dense" style={{
+        justifyContent: 'space-between'
+      }}>
         {/* {sections.map(section => (
           <Typography color="inherit" noWrap key={section}>
             {section}
@@ -143,8 +145,8 @@ function Blog(props) {
   );
 }
 
-Blog.propTypes = {
+Header.propType = {
   classes: PropTypes.object.isRequired,
-};
+}
 
-export default withStyles(styles)(Blog);
+export default withStyles(styles)(Header);

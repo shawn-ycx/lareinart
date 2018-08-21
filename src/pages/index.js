@@ -8,54 +8,89 @@ import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 
 const styles = theme => ({
-  root: {
+  container: {
     flexGrow: 1,
   },
-  paper: {
+  containerPaper: {
     padding: theme.spacing.unit * 2,
     textAlign: 'center',
     color: theme.palette.text.secondary,
   },
 });
 
-const IndexPage = (props) => {
-  const { classes, data } = props;
-  const { edges } = data.allMarkdownRemark;
+class IndexPage extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      posts: []
+    }
+  }
 
-  const Posts = edges
-    .filter(edge => !!edge.node.frontmatter.date) // You can filter your posts based on some criteria
-    .map(edge =>
-      <Link to={edge.node.fields.slug}>
-        <Grid item xs>
-          <Paper className={classes.paper}>
+  componentDidMount() {
+    const { edges } = this.props.data.allMarkdownRemark;
+    this.setState({
+      posts: edges
+    });
+  }
+
+  componentWillUnmount() {
+    this.setState({
+      posts: []
+    });
+  }
+
+  Post(edge, index) {
+    return (
+      <Grid key={index} item xs>
+        <Link to={edge.node.fields.slug}>
+          <Paper
+            styles={{
+              padding: 16,
+              textAlign: `center`,
+              color: `rgba(0, 0, 0, 0.54)`
+            }}>
             {edge.node.frontmatter.title}
           </Paper>
-        </Grid>
-      </Link>
+        </Link>
+      </Grid>
+    );
+  }
+
+  postRender() {
+    return (
+      this.state.posts
+        .filter(edge => !!edge.node.frontmatter.date) // You can filter your posts based on some criteria
+        .map((edge, index) => this.Post(edge, index))
     )
+  }
 
-  return (
-    <Layout>
-      <div className={classes.root}>
-        <Grid
-          container
-          direction="row"
-          justify="space-evenly"
-          alignItems="center"
-        >
-          {Posts}
-        </Grid>
-      </div>
-    </Layout>
-  )
+  render() {
+    const { classes } = this.props;
+
+    return (
+      <Layout>
+        <div styles={{
+          flexGrow: 1
+        }}>
+          <Grid
+            container
+            direction="row"
+            justify="space-evenly"
+            alignItems="center"
+          >
+            {this.postRender()}
+          </Grid>
+        </div>
+      </Layout>
+    )
+  }
 }
 
-IndexPage.propTypes = {
-  classes: PropTypes.object.isRequired,
-  data: PropTypes.object.isRequired,
+IndexPage.propType = {
+  data: PropTypes.object.isRequired
 }
 
-export default withStyles(styles)(IndexPage);
+export default IndexPage;
 
 export const pageQuery = graphql`
   query {
