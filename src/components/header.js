@@ -29,8 +29,8 @@ class Header extends Component {
 
         <nav className={"menu " + (this.state.isActive ? 'show' : '')}>
           <ul className={"menu-nav " + (this.state.isActive ? 'show' : '')}>
-            <li className={"nav-item " + (this.state.isActive ? 'show' : '')}><Link className="nav-link" to="/">Home</Link></li>
-            <li className={"nav-item " + (this.state.isActive ? 'show' : '')}><Link className="nav-link" to="/page-2">About</Link></li>
+            {/* <li className={"nav-item " + (this.state.isActive ? 'show' : '')}><Link className="nav-link" to="/">Home</Link></li> */}
+            <li className={"nav-item " + (this.state.isActive ? 'show' : '')}><Link className="nav-link" to="/about">About</Link></li>
           </ul>
         </nav>
         {/* <input type="checkbox" id="nav-toggle" className="nav-toggle"/> */}
