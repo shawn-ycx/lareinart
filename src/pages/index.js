@@ -3,20 +3,6 @@ import PropTypes from 'prop-types';
 import { Link, graphql } from 'gatsby';
 
 import Layout from '../components/layout';
-import { withStyles } from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
-
-const styles = theme => ({
-  container: {
-    flexGrow: 1,
-  },
-  containerPaper: {
-    padding: theme.spacing.unit * 2,
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
-  },
-});
 
 class IndexPage extends React.Component {
   constructor(props) {
@@ -39,23 +25,6 @@ class IndexPage extends React.Component {
     });
   }
 
-  Post(edge, index) {
-    return (
-      <Grid key={index} item xs>
-        <Link to={edge.node.fields.slug}>
-          <Paper
-            styles={{
-              padding: 16,
-              textAlign: `center`,
-              color: `rgba(0, 0, 0, 0.54)`
-            }}>
-            {edge.node.frontmatter.title}
-          </Paper>
-        </Link>
-      </Grid>
-    );
-  }
-
   postRender() {
     return (
       this.state.posts
@@ -64,23 +33,105 @@ class IndexPage extends React.Component {
     )
   }
 
-  render() {
-    const { classes } = this.props;
 
+
+  render() {
     return (
       <Layout>
-        <div styles={{
-          flexGrow: 1
-        }}>
-          <Grid
-            container
-            direction="row"
-            justify="space-evenly"
-            alignItems="center"
-          >
-            {this.postRender()}
-          </Grid>
-        </div>
+        <main>
+          <ul>
+            <li className="gallery-item">
+              <img src="https://placeimg.com/300/480/any" />
+            </li>
+            <li className="gallery-item">
+              <img src="https://picsum.photos/300/150/?random" />
+            </li>
+            <li className="gallery-item">
+              <img src="https://picsum.photos/g/200/300/?random" />
+            </li>
+            <li className="gallery-item">
+              <img src="https://picsum.photos/300/150/?random" />
+            </li>
+            <li className="gallery-item">
+              <img src="https://placeimg.com/640/480/any" />
+            </li>
+            <li className="gallery-item">
+              <img src="https://picsum.photos/g/300/150/?random" />
+            </li>
+            <li className="gallery-item">
+              <img src="https://placeimg.com/640/480/any" />
+            </li>
+            <li className="gallery-item">
+              <img src="https://picsum.photos/300/150/?random" />
+            </li>
+            <li className="gallery-item">
+              <img src="https://placeimg.com/640/480/any" />
+            </li>
+            <li className="gallery-item">
+              <img src="https://placeimg.com/640/480/any" />
+            </li>
+            <li className="gallery-item">
+              <img src="https://placeimg.com/300/480/any" />
+            </li>
+            <li className="gallery-item">
+              <img src="https://picsum.photos/300/150/?random" />
+            </li>
+            <li className="gallery-item">
+              <img src="https://picsum.photos/g/200/300/?random" />
+            </li>
+            <li className="gallery-item">
+              <img src="https://picsum.photos/300/150/?random" />
+            </li>
+            <li className="gallery-item">
+              <img src="https://placeimg.com/640/480/any" />
+            </li>
+            <li className="gallery-item">
+              <img src="https://picsum.photos/g/300/150/?random" />
+            </li>
+            <li className="gallery-item">
+              <img src="https://placeimg.com/640/480/any" />
+            </li>
+            <li className="gallery-item">
+              <img src="https://picsum.photos/300/150/?random" />
+            </li>
+            <li className="gallery-item">
+              <img src="https://placeimg.com/640/480/any" />
+            </li>
+            <li className="gallery-item">
+              <img src="https://placeimg.com/640/480/any" />
+            </li>
+            <li className="gallery-item">
+              <img src="https://placeimg.com/300/480/any" />
+            </li>
+            <li className="gallery-item">
+              <img src="https://picsum.photos/300/150/?random" />
+            </li>
+            <li className="gallery-item">
+              <img src="https://picsum.photos/g/200/300/?random" />
+            </li>
+            <li className="gallery-item">
+              <img src="https://picsum.photos/300/150/?random" />
+            </li>
+            <li className="gallery-item">
+              <img src="https://placeimg.com/640/480/any" />
+            </li>
+            <li className="gallery-item">
+              <img src="https://picsum.photos/g/300/150/?random" />
+            </li>
+            <li className="gallery-item">
+              <img src="https://placeimg.com/640/480/any" />
+            </li>
+            <li className="gallery-item">
+              <img src="https://picsum.photos/300/150/?random" />
+            </li>
+            <li className="gallery-item">
+              <img src="https://placeimg.com/640/480/any" />
+            </li>
+            <li className="gallery-item">
+              <img src="https://placeimg.com/640/480/any" />
+            </li>
+          </ul>
+        </main>
       </Layout>
     )
   }
@@ -112,3 +163,17 @@ export const pageQuery = graphql`
   }
 `
 
+{/* <Layout>
+        <div styles={{
+          flexGrow: 1
+        }}>
+          <Grid
+            container
+            direction="row"
+            justify="space-evenly"
+            alignItems="center"
+          >
+            {this.postRender()}
+          </Grid>
+        </div>
+      </Layout> */}

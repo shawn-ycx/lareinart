@@ -1,0 +1,7 @@
+@mixin easeOut {
+    transition: all 250ms ease-out;
+}
+
+@mixin scale($x, $y) {
+    transform: scale($x, $y);
+}

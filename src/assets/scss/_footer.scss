@@ -1,0 +1,51 @@
+:root {
+    --grey: #dfe6e9;
+}
+
+footer {
+    background: var(--grey);
+    div {
+        margin: 1rem;
+        h1 {
+            font-weight: 400;
+        }
+        button {
+            background: white;
+            width: 33%;
+            height: 1.5rem;
+            border: 1px solid black;
+            border-radius: 5px;
+        }
+    }
+}
+
+.footer {
+    &-info {
+        display: flex;
+        flex-direction: column;
+        padding: 1rem;
+    }
+    &-social {
+        padding: 1rem;
+        display: grid;
+        grid-template-columns: 1fr 50px 50px 50px 50px 1fr;
+    }
+    &-subscribe {
+        display: flex;
+        flex-direction: column;
+        padding: 1rem;
+    }
+}
+
+/* 
+.footer-info {
+    grid-column: 2/3;
+}
+
+.footer-social {
+    grid-column: 3/4;
+}
+
+.footer-subscribe {
+    grid-column: 4/5;
+} */

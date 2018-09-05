@@ -1,0 +1,85 @@
+@import "menu";
+
+:root {
+    --black: #2d3436;
+    --grey: #636e72;
+}
+
+.logo {
+    margin: 0;
+    a {
+        text-decoration: none;
+        color: var(--black);
+    }
+}
+
+header {
+    background: white;
+    text-align: center;
+    position: fixed;
+    z-index: 999;
+    width: 100%;
+    padding-top: 0.5rem;
+    top: 0;
+    left: 0;
+}
+
+@media screen and (min-width: 800px) {
+    .btn-menu {
+        display: none;
+    }
+
+    header {
+        display: grid;
+        grid-template-columns: 1fr auto minmax(600px, 3fr) 1fr;
+    }
+
+    .logo {
+        grid-column: 2/3;
+        font-size: 40px;
+        a {
+            &:hover {
+                color: $secondary-color;
+                @include easeOut;
+            }
+        }
+    }
+
+    nav {
+        all: unset;
+        grid-column: 3/4;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        ul {
+            display: flex;
+            list-style-type: none;
+            li {
+                margin-left: 3em;
+                margin-bottom: 0;
+                a {
+                    opacity: 1;
+                    color: black;
+                    position: relative;
+                    text-decoration: none;
+                    font-size: 1.2rem;
+                    &::before {
+                        content: '';
+                        display: block;
+                        height: 2px;
+                        background: $secondary-color;
+                        top: -.75em;
+                        left: 0;
+                        right: 0;
+                        @include scale(0, 1);
+                        transition: transform ease-in-out 250ms;
+                    }
+                    &:hover::before {
+                        @include scale(1, 1);
+                        height: 2px;
+                    }
+                }
+            }
+        }
+    }
+}
