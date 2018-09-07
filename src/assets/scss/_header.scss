@@ -1,15 +1,12 @@
 @import "menu";
 
-:root {
-    --black: #2d3436;
-    --grey: #636e72;
-}
-
 .logo {
     margin: 0;
+    text-transform: uppercase;
+
     a {
         text-decoration: none;
-        color: var(--black);
+        color: $black;
     }
 }
 
@@ -22,6 +19,8 @@ header {
     padding-top: 0.5rem;
     top: 0;
     left: 0;
+    box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.2);
+    border-top: 2px solid $primary-color;
 }
 
 @media screen and (min-width: 800px) {
@@ -32,17 +31,13 @@ header {
     header {
         display: grid;
         grid-template-columns: 1fr auto minmax(600px, 3fr) 1fr;
+        grid-template-rows: auto;
     }
 
     .logo {
         grid-column: 2/3;
+        font-weight: 500;
         font-size: 40px;
-        a {
-            &:hover {
-                color: $secondary-color;
-                @include easeOut;
-            }
-        }
     }
 
     nav {
@@ -59,7 +54,7 @@ header {
                 margin-bottom: 0;
                 a {
                     opacity: 1;
-                    color: black;
+                    color: $grey;
                     position: relative;
                     text-decoration: none;
                     font-size: 1.2rem;
@@ -68,7 +63,7 @@ header {
                         display: block;
                         height: 2px;
                         background: $secondary-color;
-                        top: -.75em;
+                        top: -1em;
                         left: 0;
                         right: 0;
                         @include scale(0, 1);
